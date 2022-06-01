@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\140829\\source\\repos\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj": {}
+    "C:\\Users\\140829\\Desktop\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj": {}
   },
   "projects": {
-    "C:\\Users\\140829\\source\\repos\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj": {
+    "C:\\Users\\140829\\Desktop\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\140829\\source\\repos\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj",
+        "projectUniqueName": "C:\\Users\\140829\\Desktop\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj",
         "projectName": "ComunicadoSinistroDigital",
-        "projectPath": "C:\\Users\\140829\\source\\repos\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj",
+        "projectPath": "C:\\Users\\140829\\Desktop\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital.csproj",
         "packagesPath": "C:\\Users\\140829\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\140829\\source\\repos\\ComunicadoSinistroDigital\\ComunicadoSinistroDigital\\obj\\",
+        "outputPath": "C:\\Users\\140829\\Desktop\\ComunicadoSinistroDigital\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\140829\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,9 +45,21 @@
               "target": "Package",
               "version": "[1.0.5, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
