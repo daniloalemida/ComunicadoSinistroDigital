@@ -1,3 +1,5 @@
+using ComunicadoSinistroDigital.Applications;
+using ComunicadoSinistroDigital.Applications.Interfaces;
 using ComunicadoSinistroDigital.Domain.Interfaces;
 using ComunicadoSinistroDigital.Domain.Servicos;
 using ComunicadoSinistroDigital.Infra.Database;
@@ -31,14 +33,16 @@ namespace ComunicadoSinistroDigital
         {
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IVeiculoRepositorio, VeiculoRepositorio>();
-            services.AddScoped<IAgenciaRepositorio, AgenciaRepositorio>();
             services.AddScoped<IContratoRepositorio, ContratoRepositorio>();
             services.AddScoped<ICondutorRepositorio, CondutorRepositorio>();
             services.AddScoped<IReboqueRepositorio, ReboqueRepositorio>();
             services.AddScoped<ITerceiroRepositorio, TerceiroRepositorio>();
             services.AddScoped<IComunicadoSinistroRepositorio, ComunicadoSinistroRepositorio>();
-            
-            
+
+            services.AddScoped<IComunicadoSinistroApplication, ComunicadoSinistroApplication>();
+            services.AddScoped<ILoginApplication, LoginApplication>();
+
+
             services.AddScoped<ICriptografarServico, CriptografarServico>();
 
             services.AddControllers();
@@ -62,14 +66,13 @@ namespace ComunicadoSinistroDigital
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ComunicadoSinistro v1"));
             }
-           
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -35,16 +35,16 @@ namespace ComunicadoSinistroDigital.Applications
             _reboque = reboque;
         }
 
-        public Result<LoginRetornoModel> Login(string login, string senha)
+        public async Task<Result<LoginRetornoModel>> Login(string login, string senha)
         {
 
-            var cliente = _cliente.GetByCPF(login);
+            var cliente = await _cliente.GetByCPF(login);
 
-            if (cliente == null)
+            if (cliente.Nome != null)
             {
-                if(_criptografia.VerifyPasswordHash(senha, cliente.Result.PasswordHash, cliente.Result.PasswordSalt))
+                if(_criptografia.VerifyPasswordHash(senha, cliente.PasswordHash, cliente.PasswordSalt))
                 {
-                    var sinistros = _sinistro.GetByCliente(cliente.Result.Id);
+                    var sinistros = _sinistro.GetByCliente(cliente.Id);
 
                     List<SinistroRetornoModel> listaHistoricoSinistro = new List<SinistroRetornoModel>();
                     List<ContratoRetornoModel> listaDadosContratosAtivos = new List<ContratoRetornoModel>();
@@ -81,7 +81,7 @@ namespace ComunicadoSinistroDigital.Applications
                                 CodContrato = sinistro.CodContrato,
                                 Condutor = condutor,
                                 Carro = veiculo,
-                                Cliente = cliente.Result,
+                                Cliente = cliente,
                                 DataSinistro = sinistro.DataSinistro,
                                 DescricaoOcorrido = sinistro.DescricaoSinistro,
                                 TerceiroEnvolvido = sinistro.TerceiroEnvolvido,
@@ -116,9 +116,9 @@ namespace ComunicadoSinistroDigital.Applications
 
                             listaDadosContratosAtivos.Add(new ContratoRetornoModel() {
                                 CodContrato = contrato.Id, 
-                                Cliente = cliente.Result,
+                                Cliente = cliente,
                                 VeiculoAlugado = veiculo,
-                                Condutores = condutores
+                                Condutores = condutores.Result
                             });
                         }
                     }

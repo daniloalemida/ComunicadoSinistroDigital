@@ -25,11 +25,11 @@ namespace ComunicadoSinistroDigital.Controllers
             {
                 var retorno = _loginApplication.Login(login, senha);
 
-                if (retorno.Success)
+                if (retorno.Result.Success)
                 {
-                    return Ok(retorno);
+                    return Ok(retorno.Result);
                 }
-                return BadRequest(retorno.Notifications);
+                return BadRequest(retorno.Result.Notifications);
             }
             catch (System.Exception)
             {

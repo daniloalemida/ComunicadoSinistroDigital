@@ -6,7 +6,7 @@ namespace ComunicadoSinistroDigital.Applications.Interfaces
 {
     public interface ILoginApplication
     {
-        Result<LoginRetornoModel> Login(string login, string senha);
+        System.Threading.Tasks.Task<Result<LoginRetornoModel>> Login(string login, string senha);
 
         bool RecuperarSeha(string login, string senha);
     }

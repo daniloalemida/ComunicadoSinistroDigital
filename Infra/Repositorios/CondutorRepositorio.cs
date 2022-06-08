@@ -3,6 +3,7 @@ using ComunicadoSinistroDigital.Domain.Interfaces;
 using ComunicadoSinistroDigital.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ComunicadoSinistroDigital.Infra.Repositorios
 {
@@ -13,13 +14,12 @@ namespace ComunicadoSinistroDigital.Infra.Repositorios
             
         }
 
-        public List<Condutor> GetByContrato(int codcontrato)
+        public async Task<List<Condutor>> GetByContrato(int codcontrato)
         {
-            var condutores = _context.Set<Condutor>().ToListAsync();
+            var condutores = await _context.Set<Condutor>().ToListAsync();
 
-            List<Condutor> retorno = condutores.Result.FindAll(e => e.CodContrato == codcontrato);
+            return  condutores.FindAll(e => e.CodContrato == codcontrato);
 
-            return retorno;
         }
     }
 }

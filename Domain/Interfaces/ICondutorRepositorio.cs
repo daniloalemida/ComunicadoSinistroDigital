@@ -5,7 +5,7 @@ namespace ComunicadoSinistroDigital.Domain.Interfaces
 {
     public interface ICondutorRepositorio : IEntityRepositorio<Condutor>
     {
-        List<Condutor> GetByContrato(int codcontrato);
+        System.Threading.Tasks.Task<List<Condutor>> GetByContrato(int codcontrato);
 
     }
 }

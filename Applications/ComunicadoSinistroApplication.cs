@@ -7,7 +7,7 @@ using ComunicadoSinistroDigital.Domain.Interfaces;
 using Flunt.Notifications;
 using System.Collections.Generic;
 
-namespace ComunicadoSinistro.Applications
+namespace ComunicadoSinistroDigital.Applications
 {
     public class ComunicadoSinistroApplication : IComunicadoSinistroApplication
     {
@@ -109,7 +109,7 @@ namespace ComunicadoSinistro.Applications
                     var retornoTerceiro = _terceiroRepositorio.Create(terce).Result;
                     retorno.MensagemTerceiro = "Terceiros Cadastrados com Sucesso!";
 
-                    if (retornoTerceiro)
+                    if (!retornoTerceiro)
                     {
                         return Result<ComunicadoSinistroRetornoModel>.Error(new List<Notification>() {
                             new Notification(nameof(ComunicadoSinistroRetornoModel), $"Erro ao cadastrar terceiro: {terceiro.Nome}") });
